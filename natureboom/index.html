@@ -45,7 +45,7 @@ nav ul a:hover:after{width:100%}
 .burger{display:none}
 
 /* ---------- hero ---------- */
-.hero{position:relative;min-height:88vh;display:grid;align-items:center;overflow:hidden;padding:60px 0 40px}
+.hero{position:relative;min-height:min(88vh,860px);display:grid;align-items:center;overflow:hidden;padding:60px 0 40px}
 .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
 .hero h1{font-size:clamp(50px,7.4vw,112px);line-height:.92;font-weight:900;letter-spacing:-.03em}
 .hero h1 em{font-style:italic;font-weight:600;color:var(--brand)}
@@ -57,7 +57,7 @@ nav ul a:hover:after{width:100%}
 .cta.ghost{background:transparent;color:var(--ink);box-shadow:none;border:2px solid var(--ink)}
 .cta.ghost:hover{background:var(--ink);color:var(--cream)}
 .hero .stage{position:relative;height:620px}
-.hero .stage img{position:absolute;width:240px;filter:drop-shadow(0 40px 40px rgba(21,32,26,.28));transition:transform .6s cubic-bezier(.2,.8,.2,1);border-radius:16px}
+.hero .stage img{position:absolute;width:250px;filter:drop-shadow(0 40px 40px rgba(21,32,26,.35));transition:transform .6s cubic-bezier(.2,.8,.2,1)}
 .hero .stage img:hover{transform:scale(1.06) rotate(0) !important;z-index:9}
 .f1{left:5%;top:20%;transform:rotate(-8deg);animation:float 6s ease-in-out infinite}
 .f2{left:34%;top:0;transform:rotate(3deg);animation:float 7s ease-in-out infinite .6s}
@@ -88,7 +88,7 @@ nav ul a:hover:after{width:100%}
 .card:before{content:"";position:absolute;inset:auto -40% -60% -40%;height:70%;background:var(--c);border-radius:50%;opacity:0;transition:.5s;transform:translateY(40px)}
 .card:hover{transform:translateY(-10px);box-shadow:0 40px 60px -30px rgba(21,32,26,.35);border-color:var(--c)}
 .card:hover:before{opacity:.12;transform:none}
-.card img{width:100%;border-radius:14px;transition:.5s;position:relative}
+.card img{width:82%;margin:10px auto 0;transition:.5s;position:relative}
 .card:hover img{transform:scale(1.05) rotate(-2deg)}
 .card .tag{position:absolute;top:14px;left:14px;background:var(--c);color:#fff;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:6px 10px;border-radius:999px;z-index:2}
 .card h3{font-size:26px;line-height:1;margin:18px 0 6px;color:var(--c);letter-spacing:-.02em;position:relative}
@@ -104,7 +104,7 @@ nav ul a:hover:after{width:100%}
 .band .row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:620px;padding:70px 0}
 .band .row:nth-child(even) .pic{order:2}
 .band .pic{position:relative;display:grid;place-items:center}
-.band .pic img{width:min(360px,80%);border-radius:20px;filter:drop-shadow(0 50px 50px rgba(0,0,0,.4));transform:rotate(-4deg);transition:.6s}
+.band .pic img{width:min(360px,80%);filter:drop-shadow(0 50px 50px rgba(0,0,0,.4));transform:rotate(-4deg);transition:.6s}
 .band .row:hover .pic img{transform:rotate(2deg) scale(1.04)}
 .band .pic:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.1);filter:blur(10px)}
 .band .bignum{position:absolute;font-family:"Playfair Display",serif;font-size:clamp(160px,26vw,340px);font-weight:900;opacity:.08;line-height:1;left:-10px;top:10px;pointer-events:none}
@@ -133,7 +133,7 @@ nav ul a:hover:after{width:100%}
 /* ---------- bundle ---------- */
 .bundle .box{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;background:linear-gradient(135deg,#fff,var(--cream2));border:2px solid var(--brand);border-radius:34px;padding:60px;position:relative;overflow:hidden}
 .bundle .box:after{content:"SAVE 30%";position:absolute;right:-30px;top:34px;background:var(--gold);color:var(--ink);font-weight:800;padding:10px 60px;transform:rotate(35deg);letter-spacing:.1em;font-size:13px}
-.bundle img{border-radius:20px;filter:drop-shadow(0 30px 40px rgba(21,32,26,.25))}
+.bundle img{filter:drop-shadow(0 30px 40px rgba(21,32,26,.25))}
 .bundle .price{font-size:44px;font-weight:900;margin:20px 0;font-family:"Playfair Display",serif}
 .bundle .price s{font-size:22px;color:var(--muted);font-family:Inter;font-weight:500;margin-left:12px}
 
@@ -172,7 +172,7 @@ body.cart-open .ov{opacity:1;pointer-events:auto}body.cart-open .drawer{transfor
 .drawer .hd h3{font-size:26px}
 .drawer .items{flex:1;overflow:auto;padding:16px 26px}
 .ci{display:grid;grid-template-columns:70px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(21,32,26,.08)}
-.ci img{border-radius:10px}
+.ci img{background:var(--cream);border-radius:10px;padding:4px}
 .ci b{display:block}.ci small{color:var(--muted)}
 .ci .q{display:flex;align-items:center;gap:8px;margin-top:8px}
 .ci .q button{width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700}
@@ -188,7 +188,7 @@ body.cart-open .ov{opacity:1;pointer-events:auto}body.cart-open .drawer{transfor
 .modal .box{--c:var(--brand);position:relative;background:var(--cream2);border-radius:30px;width:min(980px,100%);max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1.1fr;animation:pop .4s cubic-bezier(.2,.8,.2,1)}
 @keyframes pop{from{transform:scale(.92);opacity:0}}
 .modal .pic{background:var(--c);display:grid;place-items:center;padding:40px}
-.modal .pic img{width:80%;border-radius:18px;filter:drop-shadow(0 40px 40px rgba(0,0,0,.4))}
+.modal .pic img{width:80%;filter:drop-shadow(0 40px 40px rgba(0,0,0,.4))}
 .modal .info{padding:44px}
 .modal .x{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;font-size:20px;z-index:2}
 .modal h2{font-size:44px;color:var(--c);line-height:1;letter-spacing:-.02em}
@@ -226,7 +226,7 @@ body.cart-open .ov{opacity:1;pointer-events:auto}body.cart-open .drawer{transfor
 </div></div>
 
 <header><nav class="wrap">
-  <a class="logo" href="#"><span class="nb">NB</span>natureb<span class="oo">oo</span>m</a>
+  <a class="logo" href="#"><span class="nb">NB</span>natureboom</a>
   <ul><li><a href="#shop">Shop</a></li><li><a href="#why">Why Natureboom</a></li><li><a href="#bundle">Bundle</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQ</a></li></ul>
   <div style="display:flex;gap:14px;align-items:center">
     <button class="cartbtn" onclick="openCart()">Cart <b id="cnt">0</b></button>
@@ -249,11 +249,11 @@ body.cart-open .ov{opacity:1;pointer-events:auto}body.cart-open .drawer{transfor
       <div class="trust"><span>60-day guarantee</span><span>3rd-party tested</span><span>Non-GMO · Gluten-free</span><span>42,000+ customers</span></div>
     </div>
     <div class="stage">
-      <img class="f1" src="/img/primal.jpg" alt="Primal Boom" onclick="openProduct('primal')">
-      <img class="f2" src="/img/gluco.jpg" alt="Gluco Boom" onclick="openProduct('gluco')">
-      <img class="f3" src="/img/flow.jpg" alt="Flow Boom" onclick="openProduct('flow')">
-      <img class="f4" src="/img/root.jpg" alt="Root Boom" onclick="openProduct('root')">
-      <img class="f5" src="/img/sleep.jpg" alt="Sleep Boom" onclick="openProduct('sleep')">
+      <img class="f1" src="/img/primal.webp" alt="Primal Boom" onclick="openProduct('primal')">
+      <img class="f2" src="/img/gluco.webp" alt="Gluco Boom" onclick="openProduct('gluco')">
+      <img class="f3" src="/img/flow.webp" alt="Flow Boom" onclick="openProduct('flow')">
+      <img class="f4" src="/img/root.webp" alt="Root Boom" onclick="openProduct('root')">
+      <img class="f5" src="/img/sleep.webp" alt="Sleep Boom" onclick="openProduct('sleep')">
     </div>
   </div>
 </section>
@@ -289,7 +289,7 @@ body.cart-open .ov{opacity:1;pointer-events:auto}body.cart-open .drawer{transfor
       <button class="cta" onclick="addToCart('bundle',1)">Add the Boom Box →</button>
       <p style="margin-top:16px;font-size:13px;color:var(--muted)">Free shipping · Cancel anytime on subscription</p>
     </div>
-    <img src="/img/lineup.jpg" alt="All five Natureboom bottles">
+    <img src="/img/lineup.webp" alt="All five Natureboom bottles">
   </div>
 </div></section>
 
@@ -318,7 +318,7 @@ body.cart-open .ov{opacity:1;pointer-events:auto}body.cart-open .drawer{transfor
 
 <footer><div class="wrap">
   <div class="cols">
-    <div><a class="logo" href="#" style="color:var(--cream)"><span class="nb">NB</span>natureb<span class="oo">oo</span>m</a><p style="margin-top:16px;max-width:300px;line-height:1.6">Premium botanical supplements. Nature, amplified.</p></div>
+    <div><a class="logo" href="#" style="color:var(--cream)"><span class="nb">NB</span>natureboom</a><p style="margin-top:16px;max-width:300px;line-height:1.6">Premium botanical supplements. Nature, amplified.</p></div>
     <div><h4>Shop</h4><ul><li><a href="#" onclick="openProduct('primal');return false">Primal Boom</a></li><li><a href="#" onclick="openProduct('gluco');return false">Gluco Boom</a></li><li><a href="#" onclick="openProduct('flow');return false">Flow Boom</a></li><li><a href="#" onclick="openProduct('root');return false">Root Boom</a></li><li><a href="#" onclick="openProduct('sleep');return false">Sleep Boom</a></li></ul></div>
     <div><h4>Company</h4><ul><li><a href="#why">About</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQ</a></li><li><a href="mailto:support@natureboom.com">Contact</a></li></ul></div>
     <div><h4>Legal</h4><ul><li><a href="#">Privacy policy</a></li><li><a href="#">Terms of service</a></li><li><a href="#">Refund policy</a></li><li><a href="#">Shipping</a></li></ul></div>
@@ -353,21 +353,21 @@ const P = {
   sleep:{name:"Sleep Boom",sub:"Sleep Support",c:"var(--sleep)",tag:"Night mode",price:42.95,was:59,
     blurb:"Magnesium glycinate, L-theanine, apigenin and valerian — fall asleep faster, stay asleep, wake up clear. No next-day fog.",
     ben:["Fall asleep faster","Deeper, uninterrupted sleep","Wake up clear, not groggy","Non-habit forming"]},
-  bundle:{name:"The Boom Box",sub:"All five formulas",c:"var(--brand)",price:149,img:"/img/lineup.jpg"}
+  bundle:{name:"The Boom Box",sub:"All five formulas",c:"var(--brand)",price:149,img:"/img/lineup.webp"}
 };
 const ids=["primal","gluco","flow","root","sleep"];
 const $=s=>document.querySelector(s);
 
 /* grid */
 $("#grid").innerHTML=ids.map(k=>{const p=P[k];return `<div class="card reveal" style="--c:${p.c}" onclick="openProduct('${k}')">
-  <span class="tag">${p.tag}</span><img src="/img/${k}.jpg" alt="${p.name}">
+  <span class="tag">${p.tag}</span><img src="/img/${k}.webp" alt="${p.name}">
   <h3>${p.name}<small>${p.sub}</small></h3>
   <div class="price">$${p.price} <s>$${p.was}</s></div>
   <button class="add" onclick="event.stopPropagation();addToCart('${k}',1,this)">Add to cart</button></div>`}).join("");
 
 /* bands */
 $("#bands").innerHTML=ids.map((k,i)=>{const p=P[k];return `<div class="row ${k}"><div class="wrap">
-  <div class="pic reveal"><img src="/img/${k}.jpg" alt="${p.name}"></div>
+  <div class="pic reveal"><img src="/img/${k}.webp" alt="${p.name}"></div>
   <div class="reveal" style="position:relative;padding:0 6vw"><div class="bignum">0${i+1}</div>
     <h2><small>${p.sub}</small>${p.name.split(" ")[0]}<br>${p.name.split(" ")[1]}</h2>
     <p>${p.blurb}</p><ul>${p.ben.map(b=>`<li>${b}</li>`).join("")}</ul>
@@ -384,7 +384,7 @@ function save(){try{localStorage.setItem("nb_cart",JSON.stringify(cart))}catch(e
 function addToCart(k,q,btn){cart[k]=(cart[k]||0)+q;save();toast(P[k].name+" added to cart");if(btn){btn.textContent="Added ✓";btn.classList.add("done");setTimeout(()=>{btn.textContent="Add to cart";btn.classList.remove("done")},1500)}openCart()}
 function setQ(k,q){if(q<=0)delete cart[k];else cart[k]=q;save()}
 function render(){const ks=Object.keys(cart);let t=0,n=0;
-  $("#items").innerHTML=ks.length?ks.map(k=>{const p=P[k],q=cart[k];t+=p.price*q;n+=q;return `<div class="ci"><img src="${p.img||'/img/'+k+'.jpg'}"><div><b>${p.name}</b><small>${p.sub}</small><div class="q"><button onclick="setQ('${k}',${q-1})">−</button><span>${q}</span><button onclick="setQ('${k}',${q+1})">+</button></div></div><b>$${(p.price*q).toFixed(2)}</b></div>`}).join(""):`<div class="empty">Your cart is empty.<br>Go make some noise.</div>`;
+  $("#items").innerHTML=ks.length?ks.map(k=>{const p=P[k],q=cart[k];t+=p.price*q;n+=q;return `<div class="ci"><img src="${p.img||'/img/'+k+'.webp'}"><div><b>${p.name}</b><small>${p.sub}</small><div class="q"><button onclick="setQ('${k}',${q-1})">−</button><span>${q}</span><button onclick="setQ('${k}',${q+1})">+</button></div></div><b>$${(p.price*q).toFixed(2)}</b></div>`}).join(""):`<div class="empty">Your cart is empty.<br>Go make some noise.</div>`;
   $("#tot").textContent="$"+t.toFixed(2);$("#cnt").textContent=n}
 function openCart(){document.body.classList.add("cart-open")}function closeCart(){document.body.classList.remove("cart-open")}
 function checkout(){if(!Object.keys(cart).length)return toast("Cart is empty");toast("Checkout coming soon — connect your payment provider.")}
@@ -395,7 +395,7 @@ let sel="one";
 function openProduct(k){const p=P[k];sel="one";
   $("#mbox").style.setProperty("--c",p.c);
   $("#mbox").innerHTML=`<button class="x" onclick="closeProduct()">×</button>
-  <div class="pic"><img src="/img/${k}.jpg" alt="${p.name}"></div>
+  <div class="pic"><img src="/img/${k}.webp" alt="${p.name}"></div>
   <div class="info"><div class="kicker" style="color:${p.c}">${p.sub} · 60 capsules</div><h2 style="margin-top:10px">${p.name}</h2>
   <p style="color:var(--muted);line-height:1.6;margin-top:16px">${p.blurb}</p>
   <ul class="ben">${p.ben.map(b=>`<li>${b}</li>`).join("")}</ul>
