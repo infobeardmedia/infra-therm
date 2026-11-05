@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Natureboom — Nature, Amplified.</title>
+<meta name="description" content="Natureboom premium botanical supplements: Primal Boom, Gluco Boom, Flow Boom, Root Boom, Sleep Boom. Nature, amplified.">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F7EDE3;--cream2:#FBF4EC;--ink:#15201A;--brand:#1E4D2E;--brand2:#2E7A46;--gold:#C9A24A;--muted:#6B6F66;
+  --primal:#2F4C7E;--gluco:#4C6A35;--flow:#1C6A62;--root:#7B2B2E;--sleep:#5A3A7A;
+  --accent:var(--brand);
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:"Playfair Display",Georgia,serif}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{width:min(1240px,92vw);margin:0 auto}
+
+/* ---------- top bar ---------- */
+.ticker{background:var(--brand);color:#F7EDE3;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;overflow:hidden;white-space:nowrap}
+.ticker div{display:inline-block;padding:9px 0;animation:tick 28s linear infinite}
+.ticker span{margin:0 28px}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(247,237,227,.82);border-bottom:1px solid rgba(30,77,46,.12)}
+nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:22px;letter-spacing:-.02em}
+.logo .nb{width:38px;height:38px;border-radius:50%;background:var(--brand);color:#F7EDE3;display:grid;place-items:center;font-family:"Playfair Display",serif;font-weight:800;font-size:15px;letter-spacing:-.05em}
+.logo .oo{display:inline-block;position:relative;top:1px;font-size:.95em;letter-spacing:-.12em}
+nav ul{display:flex;gap:30px;list-style:none;font-weight:500;font-size:14px}
+nav ul a{position:relative;padding:6px 0}
+nav ul a:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--brand);transition:.3s}
+nav ul a:hover:after{width:100%}
+.cartbtn{display:flex;align-items:center;gap:8px;background:var(--ink);color:var(--cream);padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;transition:.25s}
+.cartbtn:hover{background:var(--brand)}
+.cartbtn b{background:var(--gold);color:var(--ink);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px}
+.burger{display:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:88vh;display:grid;align-items:center;overflow:hidden;padding:60px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(50px,7.4vw,112px);line-height:.92;font-weight:900;letter-spacing:-.03em}
+.hero h1 em{font-style:italic;font-weight:600;color:var(--brand)}
+.hero h1 .boom{display:inline-block;background:linear-gradient(100deg,var(--primal),var(--flow),var(--gluco),var(--root),var(--sleep));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:300% 100%;animation:shift 8s ease-in-out infinite alternate}
+@keyframes shift{to{background-position:100% 0}}
+.hero p.lead{font-size:19px;color:var(--muted);max-width:520px;margin:28px 0 36px;line-height:1.55}
+.cta{display:inline-flex;align-items:center;gap:12px;background:var(--brand);color:var(--cream);padding:18px 30px;border-radius:999px;font-weight:700;font-size:16px;box-shadow:0 18px 40px -14px rgba(30,77,46,.6);transition:.3s}
+.cta:hover{transform:translateY(-3px);box-shadow:0 26px 48px -14px rgba(30,77,46,.7)}
+.cta.ghost{background:transparent;color:var(--ink);box-shadow:none;border:2px solid var(--ink)}
+.cta.ghost:hover{background:var(--ink);color:var(--cream)}
+.hero .stage{position:relative;height:620px}
+.hero .stage img{position:absolute;width:240px;filter:drop-shadow(0 40px 40px rgba(21,32,26,.28));transition:transform .6s cubic-bezier(.2,.8,.2,1);border-radius:16px}
+.hero .stage img:hover{transform:scale(1.06) rotate(0) !important;z-index:9}
+.f1{left:5%;top:20%;transform:rotate(-8deg);animation:float 6s ease-in-out infinite}
+.f2{left:34%;top:0;transform:rotate(3deg);animation:float 7s ease-in-out infinite .6s}
+.f3{left:62%;top:14%;transform:rotate(9deg);animation:float 6.5s ease-in-out infinite 1.2s}
+.f4{left:18%;top:52%;transform:rotate(6deg);animation:float 7.5s ease-in-out infinite .3s}
+.f5{left:52%;top:46%;transform:rotate(-5deg);animation:float 6.8s ease-in-out infinite .9s}
+@keyframes float{50%{margin-top:-18px}}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;z-index:-1;animation:drift 14s ease-in-out infinite alternate}
+.b1{width:520px;height:520px;background:#CFE3D2;left:-120px;top:-80px}
+.b2{width:460px;height:460px;background:#E9D7C3;right:-100px;top:30%;animation-delay:3s}
+.b3{width:380px;height:380px;background:#D9D0EA;right:30%;bottom:-120px;animation-delay:6s}
+@keyframes drift{to{transform:translate(60px,40px) scale(1.15)}}
+.helix{position:absolute;right:-60px;top:-40px;width:420px;opacity:.12;z-index:-1;pointer-events:none;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.trust{display:flex;gap:34px;flex-wrap:wrap;font-size:13px;font-weight:600;color:var(--muted);margin-top:34px}
+.trust span:before{content:"✦";color:var(--gold);margin-right:8px}
+
+/* ---------- section titles ---------- */
+.sec{padding:110px 0}
+.kicker{font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--brand2)}
+.title{font-size:clamp(36px,5vw,64px);line-height:1.02;letter-spacing:-.025em;font-weight:800;margin:14px 0 18px}
+.sub{color:var(--muted);font-size:18px;max-width:600px;line-height:1.55}
+
+/* ---------- product grid ---------- */
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:56px}
+.card{--c:var(--brand);position:relative;background:var(--cream2);border-radius:var(--r);padding:22px 18px 24px;border:1px solid rgba(21,32,26,.07);overflow:hidden;transition:.4s cubic-bezier(.2,.8,.2,1);cursor:pointer}
+.card:before{content:"";position:absolute;inset:auto -40% -60% -40%;height:70%;background:var(--c);border-radius:50%;opacity:0;transition:.5s;transform:translateY(40px)}
+.card:hover{transform:translateY(-10px);box-shadow:0 40px 60px -30px rgba(21,32,26,.35);border-color:var(--c)}
+.card:hover:before{opacity:.12;transform:none}
+.card img{width:100%;border-radius:14px;transition:.5s;position:relative}
+.card:hover img{transform:scale(1.05) rotate(-2deg)}
+.card .tag{position:absolute;top:14px;left:14px;background:var(--c);color:#fff;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:6px 10px;border-radius:999px;z-index:2}
+.card h3{font-size:26px;line-height:1;margin:18px 0 6px;color:var(--c);letter-spacing:-.02em;position:relative}
+.card h3 small{display:block;font-family:Inter;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+.card .price{display:flex;align-items:baseline;gap:8px;margin:14px 0;font-weight:800;font-size:22px;position:relative}
+.card .price s{color:var(--muted);font-weight:500;font-size:14px}
+.card .add{width:100%;background:var(--ink);color:var(--cream);padding:13px;border-radius:999px;font-weight:700;font-size:14px;transition:.3s;position:relative}
+.card:hover .add{background:var(--c)}
+.card .add.done{background:var(--brand2)}
+
+/* ---------- color band showcase ---------- */
+.band{position:relative;color:#fff;overflow:hidden}
+.band .row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:620px;padding:70px 0}
+.band .row:nth-child(even) .pic{order:2}
+.band .pic{position:relative;display:grid;place-items:center}
+.band .pic img{width:min(360px,80%);border-radius:20px;filter:drop-shadow(0 50px 50px rgba(0,0,0,.4));transform:rotate(-4deg);transition:.6s}
+.band .row:hover .pic img{transform:rotate(2deg) scale(1.04)}
+.band .pic:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.1);filter:blur(10px)}
+.band .bignum{position:absolute;font-family:"Playfair Display",serif;font-size:clamp(160px,26vw,340px);font-weight:900;opacity:.08;line-height:1;left:-10px;top:10px;pointer-events:none}
+.band h2{font-size:clamp(44px,6vw,86px);line-height:.95;letter-spacing:-.03em;font-weight:900}
+.band h2 small{display:block;font-family:Inter;font-weight:600;font-size:14px;letter-spacing:.3em;text-transform:uppercase;opacity:.8;margin-bottom:16px}
+.band p{font-size:18px;line-height:1.6;opacity:.9;max-width:520px;margin:24px 0 30px}
+.band ul{list-style:none;display:grid;gap:10px;margin-bottom:32px;font-weight:500}
+.band li:before{content:"◆";font-size:9px;margin-right:12px;opacity:.7;vertical-align:middle}
+.band .cta{background:#fff;color:var(--ink);box-shadow:none}
+.band .cta:hover{background:var(--cream)}
+.row.primal{background:var(--primal)}.row.gluco{background:var(--gluco)}.row.flow{background:var(--flow)}.row.root{background:var(--root)}.row.sleep{background:var(--sleep)}
+.row .wrap{display:contents}
+
+/* ---------- why ---------- */
+.why{background:var(--ink);color:var(--cream)}
+.why .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:60px}
+.why .c{border:1px solid rgba(247,237,227,.15);border-radius:var(--r);padding:30px 26px;transition:.3s;background:rgba(255,255,255,.02)}
+.why .c:hover{background:rgba(255,255,255,.06);transform:translateY(-6px);border-color:var(--gold)}
+.why .c .n{font-family:"Playfair Display",serif;font-size:46px;color:var(--gold);font-weight:900;line-height:1}
+.why .c h3{font-size:22px;margin:14px 0 10px}
+.why .c p{color:rgba(247,237,227,.7);line-height:1.55;font-size:15px}
+.marq{border-top:1px solid rgba(247,237,227,.15);border-bottom:1px solid rgba(247,237,227,.15);margin-top:90px;overflow:hidden;white-space:nowrap}
+.marq div{display:inline-block;animation:tick 40s linear infinite;font-family:"Playfair Display",serif;font-size:56px;font-weight:800;padding:22px 0;letter-spacing:-.02em}
+.marq span{margin:0 40px}.marq i{color:var(--gold);font-style:normal}
+
+/* ---------- bundle ---------- */
+.bundle .box{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;background:linear-gradient(135deg,#fff,var(--cream2));border:2px solid var(--brand);border-radius:34px;padding:60px;position:relative;overflow:hidden}
+.bundle .box:after{content:"SAVE 30%";position:absolute;right:-30px;top:34px;background:var(--gold);color:var(--ink);font-weight:800;padding:10px 60px;transform:rotate(35deg);letter-spacing:.1em;font-size:13px}
+.bundle img{border-radius:20px;filter:drop-shadow(0 30px 40px rgba(21,32,26,.25))}
+.bundle .price{font-size:44px;font-weight:900;margin:20px 0;font-family:"Playfair Display",serif}
+.bundle .price s{font-size:22px;color:var(--muted);font-family:Inter;font-weight:500;margin-left:12px}
+
+/* ---------- reviews ---------- */
+.rev{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+.rev .r{background:var(--cream2);border-radius:var(--r);padding:30px;border:1px solid rgba(21,32,26,.07);position:relative}
+.rev .r:before{content:"“";position:absolute;font-family:"Playfair Display",serif;font-size:120px;line-height:1;color:var(--gold);opacity:.25;top:-6px;left:18px}
+.rev .stars{color:var(--gold);letter-spacing:3px;margin-bottom:14px}
+.rev p{line-height:1.6;font-size:16px;position:relative}
+.rev .who{margin-top:18px;font-weight:700;font-size:13px}
+.rev .who small{display:block;color:var(--muted);font-weight:500}
+
+/* ---------- faq ---------- */
+.faq details{border-bottom:1px solid rgba(21,32,26,.12);padding:22px 0}
+.faq summary{font-family:"Playfair Display",serif;font-size:22px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq summary:after{content:"+";font-size:30px;color:var(--brand);transition:.3s}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq p{color:var(--muted);line-height:1.6;margin-top:14px;max-width:760px}
+
+/* ---------- newsletter / footer ---------- */
+.news{background:var(--brand);color:var(--cream);text-align:center}
+.news form{display:flex;max-width:520px;margin:34px auto 0;background:#fff;border-radius:999px;padding:6px}
+.news input{flex:1;border:0;background:none;padding:14px 22px;font:inherit;font-size:15px;outline:0;color:var(--ink)}
+.news button{background:var(--ink);color:#fff;border-radius:999px;padding:14px 26px;font-weight:700}
+footer{background:var(--ink);color:rgba(247,237,227,.75);padding:70px 0 30px;font-size:14px}
+footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+footer h4{color:var(--cream);margin-bottom:16px;font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+footer ul{list-style:none;display:grid;gap:10px}
+footer .disc{margin-top:50px;padding-top:24px;border-top:1px solid rgba(247,237,227,.12);font-size:12px;line-height:1.6;color:rgba(247,237,227,.5)}
+
+/* ---------- cart drawer ---------- */
+.ov{position:fixed;inset:0;background:rgba(21,32,26,.45);opacity:0;pointer-events:none;transition:.3s;z-index:90}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:var(--cream2);z-index:100;transform:translateX(100%);transition:.45s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-30px 0 60px rgba(0,0,0,.2)}
+body.cart-open .ov{opacity:1;pointer-events:auto}body.cart-open .drawer{transform:none}
+.drawer .hd{display:flex;justify-content:space-between;align-items:center;padding:24px 26px;border-bottom:1px solid rgba(21,32,26,.1)}
+.drawer .hd h3{font-size:26px}
+.drawer .items{flex:1;overflow:auto;padding:16px 26px}
+.ci{display:grid;grid-template-columns:70px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(21,32,26,.08)}
+.ci img{border-radius:10px}
+.ci b{display:block}.ci small{color:var(--muted)}
+.ci .q{display:flex;align-items:center;gap:8px;margin-top:8px}
+.ci .q button{width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700}
+.drawer .ft{padding:22px 26px;border-top:1px solid rgba(21,32,26,.1)}
+.drawer .tot{display:flex;justify-content:space-between;font-size:20px;font-weight:800;margin-bottom:16px}
+.drawer .cta{width:100%;justify-content:center}
+.empty{text-align:center;color:var(--muted);padding:60px 0}
+
+/* ---------- product modal ---------- */
+.modal{position:fixed;inset:0;z-index:110;display:none;place-items:center;padding:20px}
+.modal.on{display:grid}
+.modal .bg{position:absolute;inset:0;background:rgba(21,32,26,.6);backdrop-filter:blur(6px)}
+.modal .box{--c:var(--brand);position:relative;background:var(--cream2);border-radius:30px;width:min(980px,100%);max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1.1fr;animation:pop .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{transform:scale(.92);opacity:0}}
+.modal .pic{background:var(--c);display:grid;place-items:center;padding:40px}
+.modal .pic img{width:80%;border-radius:18px;filter:drop-shadow(0 40px 40px rgba(0,0,0,.4))}
+.modal .info{padding:44px}
+.modal .x{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:var(--ink);color:#fff;font-size:20px;z-index:2}
+.modal h2{font-size:44px;color:var(--c);line-height:1;letter-spacing:-.02em}
+.modal .ben{display:grid;gap:10px;margin:22px 0;list-style:none}
+.modal .ben li:before{content:"✓";color:var(--c);font-weight:800;margin-right:10px}
+.modal .opts{display:grid;gap:10px;margin:20px 0}
+.modal .opt{display:flex;justify-content:space-between;align-items:center;border:2px solid rgba(21,32,26,.12);border-radius:16px;padding:14px 18px;cursor:pointer;transition:.2s}
+.modal .opt.sel{border-color:var(--c);background:rgba(0,0,0,.03)}
+.modal .opt b{display:block}.modal .opt small{color:var(--muted)}
+.modal .opt .pr{font-weight:800;font-size:18px}
+.modal .opt .badge{background:var(--c);color:#fff;font-size:10px;padding:4px 8px;border-radius:999px;margin-left:8px;letter-spacing:.1em}
+
+.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,80px);background:var(--ink);color:#fff;padding:14px 22px;border-radius:999px;font-weight:600;z-index:120;transition:.4s;opacity:0}
+.toast.on{transform:translate(-50%,0);opacity:1}
+
+.reveal{opacity:0;transform:translateY(30px);transition:.8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:980px){
+  .hero .wrap{grid-template-columns:1fr}.hero .stage{height:420px}.hero .stage img{width:150px}
+  .grid{grid-template-columns:repeat(2,1fr)}.why .cols{grid-template-columns:1fr 1fr}
+  .band .row{grid-template-columns:1fr;min-height:0;padding:60px 0}.band .row:nth-child(even) .pic{order:0}
+  .bundle .box{grid-template-columns:1fr;padding:34px}.rev{grid-template-columns:1fr}
+  footer .cols{grid-template-columns:1fr 1fr}.modal .box{grid-template-columns:1fr}
+  nav ul{display:none}.burger{display:block;font-size:26px}
+}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.why .cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="ticker"><div>
+<span>Free US shipping over $75</span><span>✦</span><span>60-day money-back guarantee</span><span>✦</span><span>GMP-certified · Made in USA</span><span>✦</span><span>Nature, amplified.</span><span>✦</span>
+<span>Free US shipping over $75</span><span>✦</span><span>60-day money-back guarantee</span><span>✦</span><span>GMP-certified · Made in USA</span><span>✦</span><span>Nature, amplified.</span><span>✦</span>
+</div></div>
+
+<header><nav class="wrap">
+  <a class="logo" href="#"><span class="nb">NB</span>natureb<span class="oo">oo</span>m</a>
+  <ul><li><a href="#shop">Shop</a></li><li><a href="#why">Why Natureboom</a></li><li><a href="#bundle">Bundle</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQ</a></li></ul>
+  <div style="display:flex;gap:14px;align-items:center">
+    <button class="cartbtn" onclick="openCart()">Cart <b id="cnt">0</b></button>
+    <button class="burger" onclick="document.querySelector('#shop').scrollIntoView()">☰</button>
+  </div>
+</nav></header>
+
+<section class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <svg class="helix" viewBox="0 0 200 200"><path d="M40 10c40 40 80 40 120 0M40 60c40 40 80 40 120 0M40 110c40 40 80 40 120 0M40 160c40 40 80 40 120 0M40 10c40-40 80-40 120 0M40 60c40-40 80-40 120 0M40 110c40-40 80-40 120 0M40 160c40-40 80-40 120 0" fill="none" stroke="#1E4D2E" stroke-width="6"/></svg>
+  <div class="wrap">
+    <div>
+      <div class="kicker">Botanical formulas · 5 targeted blends</div>
+      <h1 style="margin-top:18px">Nature,<br><em>amplified</em>.<br><span class="boom">BOOM.</span></h1>
+      <p class="lead">Five precision botanical formulas for the things men and women actually struggle with: vitality, blood sugar, bladder, hair and sleep. Clean labels. Loud results.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="cta" href="#shop">Shop the line →</a>
+        <a class="cta ghost" href="#bundle">Build a bundle</a>
+      </div>
+      <div class="trust"><span>60-day guarantee</span><span>3rd-party tested</span><span>Non-GMO · Gluten-free</span><span>42,000+ customers</span></div>
+    </div>
+    <div class="stage">
+      <img class="f1" src="/img/primal.jpg" alt="Primal Boom" onclick="openProduct('primal')">
+      <img class="f2" src="/img/gluco.jpg" alt="Gluco Boom" onclick="openProduct('gluco')">
+      <img class="f3" src="/img/flow.jpg" alt="Flow Boom" onclick="openProduct('flow')">
+      <img class="f4" src="/img/root.jpg" alt="Root Boom" onclick="openProduct('root')">
+      <img class="f5" src="/img/sleep.jpg" alt="Sleep Boom" onclick="openProduct('sleep')">
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="shop"><div class="wrap">
+  <div class="reveal"><div class="kicker">The lineup</div>
+  <h2 class="title">Pick your <span style="color:var(--brand)">Boom</span>.</h2>
+  <p class="sub">One bottle, one mission. Every formula is built around a single goal and dosed to actually hit it.</p></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="band" id="bands"></section>
+
+<section class="sec why" id="why"><div class="wrap">
+  <div class="reveal"><div class="kicker" style="color:var(--gold)">Why Natureboom</div>
+  <h2 class="title">Built louder than<br>the supplement aisle.</h2></div>
+  <div class="cols">
+    <div class="c reveal"><div class="n">01</div><h3>Clinically-dosed</h3><p>We use the amounts the studies used — not label-decoration “fairy dust” doses.</p></div>
+    <div class="c reveal"><div class="n">02</div><h3>Made in the USA</h3><p>Manufactured in GMP-certified, FDA-registered facilities. Every batch third-party tested.</p></div>
+    <div class="c reveal"><div class="n">03</div><h3>Clean label</h3><p>Non-GMO, gluten-free, no artificial fillers, dyes or preservatives. Vegetable capsules.</p></div>
+    <div class="c reveal"><div class="n">04</div><h3>60-day promise</h3><p>Not feeling the boom? Email us within 60 days and we refund you. No bottle return, no drama.</p></div>
+  </div>
+  <div class="marq"><div><span>PRIMAL <i>✦</i> GLUCO <i>✦</i> FLOW <i>✦</i> ROOT <i>✦</i> SLEEP <i>✦</i> NATURE, AMPLIFIED <i>✦</i> </span><span>PRIMAL <i>✦</i> GLUCO <i>✦</i> FLOW <i>✦</i> ROOT <i>✦</i> SLEEP <i>✦</i> NATURE, AMPLIFIED <i>✦</i> </span></div></div>
+</div></section>
+
+<section class="sec bundle" id="bundle"><div class="wrap">
+  <div class="box reveal">
+    <div>
+      <div class="kicker">The full stack</div>
+      <h2 class="title">The Boom Box.</h2>
+      <p class="sub">All five formulas. One box. Vitality, blood sugar, bladder, hair and sleep — covered for a full month.</p>
+      <div class="price">$149 <s>$214.95</s></div>
+      <button class="cta" onclick="addToCart('bundle',1)">Add the Boom Box →</button>
+      <p style="margin-top:16px;font-size:13px;color:var(--muted)">Free shipping · Cancel anytime on subscription</p>
+    </div>
+    <img src="/img/lineup.jpg" alt="All five Natureboom bottles">
+  </div>
+</div></section>
+
+<section class="sec" id="reviews"><div class="wrap">
+  <div class="reveal"><div class="kicker">Reviews</div><h2 class="title">Loud, happy customers.</h2></div>
+  <div class="rev">
+    <div class="r reveal"><div class="stars">★★★★★</div><p>Three weeks on Sleep Boom and I'm out in ten minutes instead of staring at the ceiling. No grogginess in the morning either.</p><div class="who">Daniel R.<small>Verified buyer · Sleep Boom</small></div></div>
+    <div class="r reveal"><div class="stars">★★★★★</div><p>My afternoon crashes are gone. I take Gluco Boom with lunch and my energy stays flat and steady all day.</p><div class="who">Maria S.<small>Verified buyer · Gluco Boom</small></div></div>
+    <div class="r reveal"><div class="stars">★★★★★</div><p>Bought the Boom Box for me and my wife. Honestly the branding got me, the results kept me. Reordered twice.</p><div class="who">Kevin T.<small>Verified buyer · Boom Box</small></div></div>
+  </div>
+</div></section>
+
+<section class="sec faq" id="faq" style="padding-top:0"><div class="wrap">
+  <div class="reveal"><div class="kicker">FAQ</div><h2 class="title">Questions, answered.</h2></div>
+  <details open><summary>How long until I notice results?</summary><p>Most customers report changes within 2–4 weeks of consistent daily use. Botanicals build up — give each formula a full 60 days (which is exactly how long our guarantee runs).</p></details>
+  <details><summary>Can I take more than one Boom at a time?</summary><p>Yes. The formulas are designed to stack — that's the whole point of the Boom Box. If you take prescription medication, check with your doctor first.</p></details>
+  <details><summary>What's your refund policy?</summary><p>60 days, no questions, no returns. Email support@natureboom.com with your order number and we refund you.</p></details>
+  <details><summary>Where do you ship?</summary><p>USA, Canada, UK, EU and Australia. US orders over $75 ship free and arrive in 3–5 business days.</p></details>
+</div></section>
+
+<section class="sec news"><div class="wrap">
+  <h2 class="title">Join the Boom list.</h2>
+  <p style="opacity:.85;font-size:18px">Early drops, 15% off your first order, zero spam.</p>
+  <form onsubmit="event.preventDefault();toast('You\'re on the list. Check your inbox.');this.reset()"><input type="email" required placeholder="your@email.com"><button>Get 15% off</button></form>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div><a class="logo" href="#" style="color:var(--cream)"><span class="nb">NB</span>natureb<span class="oo">oo</span>m</a><p style="margin-top:16px;max-width:300px;line-height:1.6">Premium botanical supplements. Nature, amplified.</p></div>
+    <div><h4>Shop</h4><ul><li><a href="#" onclick="openProduct('primal');return false">Primal Boom</a></li><li><a href="#" onclick="openProduct('gluco');return false">Gluco Boom</a></li><li><a href="#" onclick="openProduct('flow');return false">Flow Boom</a></li><li><a href="#" onclick="openProduct('root');return false">Root Boom</a></li><li><a href="#" onclick="openProduct('sleep');return false">Sleep Boom</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#why">About</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQ</a></li><li><a href="mailto:support@natureboom.com">Contact</a></li></ul></div>
+    <div><h4>Legal</h4><ul><li><a href="#">Privacy policy</a></li><li><a href="#">Terms of service</a></li><li><a href="#">Refund policy</a></li><li><a href="#">Shipping</a></li></ul></div>
+  </div>
+  <div class="disc">© <span id="yr"></span> Natureboom. All rights reserved. *These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Consult your physician before starting any supplement, especially if pregnant, nursing, or taking medication.</div>
+</div></footer>
+
+<div class="ov" onclick="closeCart()"></div>
+<aside class="drawer">
+  <div class="hd"><h3>Your cart</h3><button onclick="closeCart()" style="font-size:26px">×</button></div>
+  <div class="items" id="items"></div>
+  <div class="ft"><div class="tot"><span>Subtotal</span><span id="tot">$0.00</span></div><button class="cta" onclick="checkout()">Checkout →</button><p style="text-align:center;font-size:12px;color:var(--muted);margin-top:12px">Shipping & taxes calculated at checkout</p></div>
+</aside>
+
+<div class="modal" id="modal"><div class="bg" onclick="closeProduct()"></div><div class="box" id="mbox"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const P = {
+  primal:{name:"Primal Boom",sub:"Men's Vitality Support",c:"var(--primal)",tag:"Best seller",price:42.95,was:59,
+    blurb:"The daily driver for men who want their edge back. Tongkat ali, fenugreek, zinc and maca — dosed to support testosterone, stamina and drive.",
+    ben:["Supports healthy testosterone levels","Energy, drive & stamina","Lean muscle & recovery","Mood and confidence"]},
+  gluco:{name:"Gluco Boom",sub:"Blood Sugar Support",c:"var(--gluco)",tag:"Top rated",price:42.95,was:59,
+    blurb:"Berberine, cinnamon bark, chromium and gymnema working together to support healthy glucose metabolism and kill the 3pm crash.",
+    ben:["Supports healthy blood sugar","Steadier all-day energy","Fewer sugar cravings","Metabolic & weight support"]},
+  flow:{name:"Flow Boom",sub:"Bladder Support",c:"var(--flow)",tag:"New",price:42.95,was:59,
+    blurb:"Pumpkin seed, saw palmetto, cranberry and D-mannose — for fewer night trips and a calmer, more confident bladder.",
+    ben:["Fewer night-time bathroom trips","Healthy urinary tract","Supports prostate & pelvic health","Confidence to go out again"]},
+  root:{name:"Root Boom",sub:"Hair Support",c:"var(--root)",tag:"Fan favourite",price:42.95,was:59,
+    blurb:"Biotin, saw palmetto, horsetail silica and keratin — nourishing the follicle from the root up for thicker, fuller-looking hair.",
+    ben:["Thicker, fuller-looking hair","Supports the follicle from the root","Stronger nails & healthier skin","For men and women"]},
+  sleep:{name:"Sleep Boom",sub:"Sleep Support",c:"var(--sleep)",tag:"Night mode",price:42.95,was:59,
+    blurb:"Magnesium glycinate, L-theanine, apigenin and valerian — fall asleep faster, stay asleep, wake up clear. No next-day fog.",
+    ben:["Fall asleep faster","Deeper, uninterrupted sleep","Wake up clear, not groggy","Non-habit forming"]},
+  bundle:{name:"The Boom Box",sub:"All five formulas",c:"var(--brand)",price:149,img:"/img/lineup.jpg"}
+};
+const ids=["primal","gluco","flow","root","sleep"];
+const $=s=>document.querySelector(s);
+
+/* grid */
+$("#grid").innerHTML=ids.map(k=>{const p=P[k];return `<div class="card reveal" style="--c:${p.c}" onclick="openProduct('${k}')">
+  <span class="tag">${p.tag}</span><img src="/img/${k}.jpg" alt="${p.name}">
+  <h3>${p.name}<small>${p.sub}</small></h3>
+  <div class="price">$${p.price} <s>$${p.was}</s></div>
+  <button class="add" onclick="event.stopPropagation();addToCart('${k}',1,this)">Add to cart</button></div>`}).join("");
+
+/* bands */
+$("#bands").innerHTML=ids.map((k,i)=>{const p=P[k];return `<div class="row ${k}"><div class="wrap">
+  <div class="pic reveal"><img src="/img/${k}.jpg" alt="${p.name}"></div>
+  <div class="reveal" style="position:relative;padding:0 6vw"><div class="bignum">0${i+1}</div>
+    <h2><small>${p.sub}</small>${p.name.split(" ")[0]}<br>${p.name.split(" ")[1]}</h2>
+    <p>${p.blurb}</p><ul>${p.ben.map(b=>`<li>${b}</li>`).join("")}</ul>
+    <button class="cta" onclick="openProduct('${k}')">Shop ${p.name} · $${p.price}</button>
+  </div></div></div>`}).join("");
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("in")),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* cart */
+let cart={};try{cart=JSON.parse(localStorage.getItem("nb_cart")||"{}")}catch(e){}
+function save(){try{localStorage.setItem("nb_cart",JSON.stringify(cart))}catch(e){}render()}
+function addToCart(k,q,btn){cart[k]=(cart[k]||0)+q;save();toast(P[k].name+" added to cart");if(btn){btn.textContent="Added ✓";btn.classList.add("done");setTimeout(()=>{btn.textContent="Add to cart";btn.classList.remove("done")},1500)}openCart()}
+function setQ(k,q){if(q<=0)delete cart[k];else cart[k]=q;save()}
+function render(){const ks=Object.keys(cart);let t=0,n=0;
+  $("#items").innerHTML=ks.length?ks.map(k=>{const p=P[k],q=cart[k];t+=p.price*q;n+=q;return `<div class="ci"><img src="${p.img||'/img/'+k+'.jpg'}"><div><b>${p.name}</b><small>${p.sub}</small><div class="q"><button onclick="setQ('${k}',${q-1})">−</button><span>${q}</span><button onclick="setQ('${k}',${q+1})">+</button></div></div><b>$${(p.price*q).toFixed(2)}</b></div>`}).join(""):`<div class="empty">Your cart is empty.<br>Go make some noise.</div>`;
+  $("#tot").textContent="$"+t.toFixed(2);$("#cnt").textContent=n}
+function openCart(){document.body.classList.add("cart-open")}function closeCart(){document.body.classList.remove("cart-open")}
+function checkout(){if(!Object.keys(cart).length)return toast("Cart is empty");toast("Checkout coming soon — connect your payment provider.")}
+render();
+
+/* product modal */
+let sel="one";
+function openProduct(k){const p=P[k];sel="one";
+  $("#mbox").style.setProperty("--c",p.c);
+  $("#mbox").innerHTML=`<button class="x" onclick="closeProduct()">×</button>
+  <div class="pic"><img src="/img/${k}.jpg" alt="${p.name}"></div>
+  <div class="info"><div class="kicker" style="color:${p.c}">${p.sub} · 60 capsules</div><h2 style="margin-top:10px">${p.name}</h2>
+  <p style="color:var(--muted);line-height:1.6;margin-top:16px">${p.blurb}</p>
+  <ul class="ben">${p.ben.map(b=>`<li>${b}</li>`).join("")}</ul>
+  <div class="opts">
+    <div class="opt sel" data-o="one" onclick="pick(this,'one')"><div><b>One-time purchase</b><small>1 bottle · 30-day supply</small></div><div class="pr">$${p.price}</div></div>
+    <div class="opt" data-o="sub" onclick="pick(this,'sub')"><div><b>Subscribe & save 20%<span class="badge">POPULAR</span></b><small>Ships monthly · cancel anytime</small></div><div class="pr">$${(p.price*.8).toFixed(2)}</div></div>
+    <div class="opt" data-o="three" onclick="pick(this,'three')"><div><b>3-bottle stack</b><small>90-day supply · free shipping</small></div><div class="pr">$${(p.price*3*.85).toFixed(2)}</div></div>
+  </div>
+  <button class="cta" style="width:100%;justify-content:center;background:${p.c}" onclick="addToCart('${k}',sel==='three'?3:1);closeProduct()">Add to cart →</button>
+  <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:12px">60-day money-back guarantee · Made in USA · 3rd-party tested</p></div>`;
+  $("#modal").classList.add("on");document.body.style.overflow="hidden"}
+function pick(el,o){sel=o;document.querySelectorAll(".opt").forEach(x=>x.classList.remove("sel"));el.classList.add("sel")}
+function closeProduct(){$("#modal").classList.remove("on");document.body.style.overflow=""}
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeProduct();closeCart()}});
+
+let tt;function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2600)}
+$("#yr").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
